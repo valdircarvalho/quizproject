@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizproject/pagetwo/pagetwo.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -42,7 +43,11 @@ class _TelaBaseState extends State<TelaBase> {
                decoration: InputDecoration(labelText: "Insira a Senha"),
                textAlign: TextAlign.center,
              ),
-             RaisedButton(onPressed: () {},
+             RaisedButton(onPressed: () {
+               Navigator.push(
+                   context,
+                   MaterialPageRoute(builder: (context) => pagetwo()));
+             },
                child: Text("Login", style:
                TextStyle(color: Colors.white, fontSize: 20.0),),
                color: Colors.blue,
