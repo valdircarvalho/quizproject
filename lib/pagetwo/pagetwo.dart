@@ -1,24 +1,36 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:quizproject/main.dart';
 import 'package:quizproject/pagetwo/pagethree.dart';
 import 'package:quizproject/pagetwo/questoes.dart';
 import 'dart:math';
 
 class pagetwo extends StatefulWidget {
+
+//  var score = 0;
+//  pagetwo(this.score);
+
   @override
   _pagetwoState createState() => _pagetwoState();
+
 }
 
 /*class data {String score;
   Data({this.score});
 }*/
 
+var fscore = 0;
+
+
 class _pagetwoState extends State<pagetwo> {
   //https://portal.fiocruz.br/coronavirus/perguntas-e-respostas
 
   var contador = 0;
-  var score = 0;
+  //var score = 0;
+
+  //_pagetwoState(this.score = score);
 
   List listaquestoes = [
     questoes(
@@ -29,28 +41,32 @@ class _pagetwoState extends State<pagetwo> {
         "3 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
         true),
     questoes(
-        "4 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
+        "4 - A pessoa não pode transmitir o coronavírus mesmo sem apresentar sintoma?",
+        false),
+    questoes(
+        "5 - A vacina para influenza pode proteger também contra o novo coronavírus?",
+        false),
+    questoes(
+        "6 - Para higienização, na falta de água na torneira, é possível lavar as mãos usando água de uma garrafa pet ou de um outro reservatório qualquer? ",
         true),
     questoes(
-        "5 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
+        "7 - Antibióticos são eficazes na prevenção ou tratamento de Covid-19?",
+        false),
+    questoes(
+        "8 - É possível se contaminar por meio de aperto de mãos ou com beijos no rosto?",
         true),
     questoes(
-        "6 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
-        true),
+        "9 - A Organização Mundial de Saúde (OMS) disse que notas de dinheiro carregam Covid-19?",
+        false),
     questoes(
-        "7 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
+        "10 - É arriscado que as crianças saiam de casa somente para visitar os avós?",
         true),
-    questoes(
-        "8 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
-        true),
-    questoes(
-        "9 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
-        true)
   ];
 
   verificacorrecao(bool alternativa, BuildContext ctx) {
     if (alternativa == listaquestoes[contador].correto) {
-      score = score + 10;
+//      pagetwo().score = pagetwo(_pagetwoState).score + 10;
+      fscore = fscore + 10;
       final snackbar = SnackBar(
         content: Text("Resposta Correta! \o/"),
         duration: Duration(milliseconds: 500),
@@ -58,7 +74,8 @@ class _pagetwoState extends State<pagetwo> {
       );
       Scaffold.of(ctx).showSnackBar(snackbar);
     } else {
-      score = score + 0;
+//      pagetwo().score = pagetwo().score + 0;
+      fscore = fscore + 0;
       final snackbar = SnackBar(
         content: Text("Resposta Incorreta! ):"),
         duration: Duration(milliseconds: 500),
@@ -68,13 +85,19 @@ class _pagetwoState extends State<pagetwo> {
     }
 
     setState(() {
-      if (contador < 8) {
+      if (contador < 9) {
         contador = contador + 1;
       } else {
+
+        Navigator.pushAndRemoveUntil(context, new MaterialPageRoute(builder: (context)=> new Summary(score : fscore)),
+                (Route<dynamic> route) => false);
+        //Navigator.pushNamed(context, pagethree.routename, arguments: _pagetwoState());
+        /*
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => pagethree()),
             (Route<dynamic> route) => false);
+          */
       }
     });
   }
@@ -82,12 +105,13 @@ class _pagetwoState extends State<pagetwo> {
   reset() {
     setState(() {
       contador = 0;
-      score = 0;
+      fscore = 0;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
           title: Text("Quiz - Covid19"),
@@ -166,7 +190,7 @@ class _pagetwoState extends State<pagetwo> {
                                 padding:
                                     EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
                                 child: Text(
-                                  "SCORE: $score de 100",
+                                  "SCORE: $fscore de 100",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 25.0),
                                 ))),
@@ -186,6 +210,20 @@ class _pagetwoState extends State<pagetwo> {
                     ),
                   ],
                 ))));
+  }
+}
+
+
+class Summary extends StatelessWidget {
+  final int score;
+  Summary({Key key, @required this.score }) : super(key : key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new WillPopScope(
+      onWillPop: ()async  => false,
+      child: pagethree(),
+        );
   }
 }
 

@@ -14,12 +14,19 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(title: 'Projeto FPA - Quiz', home: TelaBase()));
+  runApp(MaterialApp(title: 'Projeto FPA - Quiz', home: TelaBase(), initialRoute: '/',
+    routes: {
+//      '/TelaBase': (context)=> TelaBase(),
+      '/pagetwo':(context)=> pagetwo(),
+      '/pagethree':(context)=> pagethree(),
+      pagethree.routename: (context)=> pagethree() }
+      ,));
 
-  //FirebaseFirestore.instance.collection("collectionPath").doc("sdlkfj").set({"data":"alsdkjf"});
 }
 
 class TelaBase extends StatefulWidget {
+  static const routename = '/pagetwo';
+
   @override
   _TelaBaseState createState() => _TelaBaseState();
 }
