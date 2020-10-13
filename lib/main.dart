@@ -87,14 +87,23 @@ class _TelaBaseState extends State<TelaBase> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 0.0),
+        padding: EdgeInsets.fromLTRB(20.0, 50, 20.0, 0.0),
         child: Column(
+          //mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
+
+            Image.asset('graphics/visual_v2.png', height: 150, width: 200 , fit: BoxFit.fitHeight,),
+
+            /*
             Icon(
               Icons.account_circle,
               size: 80.0,
             ),
+
+
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(labelText: "Insira Seu E-mail"),
@@ -108,8 +117,12 @@ class _TelaBaseState extends State<TelaBase> {
               obscureText: true,
               controller: _passController,
             ),
+            */
+
+
             RaisedButton(
               onPressed: () async {
+                fscore = 0;
                /* try {
                //primeiro teste
                   FirebaseUser user = (await FirebaseAuth.instance.
@@ -132,28 +145,31 @@ class _TelaBaseState extends State<TelaBase> {
                 /*Navigator.pushAndRemoveUntil(context,
                     MaterialPageRoute(builder: (context) => pagetwo()), (Route<dynamic> route) => false);*/
 
-
-
                 signInWithGoogle().then((result) {
                   if (result != null) {
-                    Navigator.of(context).push(
+                    Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
                         builder: (context) {
                           return pagetwo();
                         },
                       ),
-                    );
+                            (Route<dynamic> route) => false);
                   }
                 });
 
 
                 },
               child: Text(
-                "Login",
+                "Login com Google",
                 style: TextStyle(color: Colors.white, fontSize: 25.0),
               ),
               color: Colors.blue,
             ),
+
+
+
+
+
             Text(
               "PPGIA - FPA 2020.1",
               textAlign: TextAlign.center,
@@ -170,6 +186,7 @@ class _TelaBaseState extends State<TelaBase> {
 
 
 // classe para login
+
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();

@@ -33,34 +33,16 @@ class _pagetwoState extends State<pagetwo> {
   //_pagetwoState(this.score = score);
 
   List listaquestoes = [
-    questoes(
-        "1 - Existe um sabão/sabonete específico que  serve para higienizar as mãos?",
-        false),
+    questoes("1 - Existe um sabão/sabonete específico que  serve para higienizar as mãos?", false),
     questoes("2 - A tuberculose coloca a pessoa em um grupo de risco?", true),
-    questoes(
-        "3 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?",
-        true),
-    questoes(
-        "4 - A pessoa não pode transmitir o coronavírus mesmo sem apresentar sintoma?",
-        false),
-    questoes(
-        "5 - A vacina para influenza pode proteger também contra o novo coronavírus?",
-        false),
-    questoes(
-        "6 - Para higienização, na falta de água na torneira, é possível lavar as mãos usando água de uma garrafa pet ou de um outro reservatório qualquer? ",
-        true),
-    questoes(
-        "7 - Antibióticos são eficazes na prevenção ou tratamento de Covid-19?",
-        false),
-    questoes(
-        "8 - É possível se contaminar por meio de aperto de mãos ou com beijos no rosto?",
-        true),
-    questoes(
-        "9 - A Organização Mundial de Saúde (OMS) disse que notas de dinheiro carregam Covid-19?",
-        false),
-    questoes(
-        "10 - É arriscado que as crianças saiam de casa somente para visitar os avós?",
-        true),
+    questoes("3 - A máscara de proteção, mesmo que de pano, ajuda a proteger do novo coronavírus?", true),
+    questoes("4 - A pessoa não pode transmitir o coronavírus mesmo sem apresentar sintoma?", false),
+    questoes("5 - A vacina para influenza pode proteger também contra o novo coronavírus?", false),
+    questoes("6 - Para higienização, na falta de água na torneira, é possível lavar as mãos usando água de uma garrafa pet ou de um outro reservatório qualquer? ", true),
+    questoes("7 - Antibióticos são eficazes na prevenção ou tratamento de Covid-19?", false),
+    questoes("8 - É possível se contaminar por meio de aperto de mãos ou com beijos no rosto?", true),
+    questoes("9 - A Organização Mundial de Saúde (OMS) disse que notas de dinheiro carregam Covid-19?", false),
+    questoes("10 - É arriscado que as crianças saiam de casa somente para visitar os avós?", true),
   ];
 
   verificacorrecao(bool alternativa, BuildContext ctx) {

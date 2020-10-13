@@ -12,6 +12,7 @@ class pagethree extends StatefulWidget {
 
 class _pagethree extends State<pagethree> {
 
+
   @override
   Widget build(BuildContext context) {
 
@@ -26,7 +27,7 @@ class _pagethree extends State<pagethree> {
               icon: Icon(Icons.share),
               onPressed: () {
                 Share.share(
-                    "Jogo Quiz sobre o Covid19 - Obtive $fscore em pontos. Jogue Você também - Projeto FPA 2020.1 ");
+                    "Jogo Quiz Covid19 - Obtive $fscore em pontos. Jogue Você também - Projeto FPA 2020.1 ");
               })
         ],
       ),
@@ -62,6 +63,7 @@ class _pagethree extends State<pagethree> {
               ],
             ),
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -74,6 +76,52 @@ class _pagethree extends State<pagethree> {
             ],
           ),
 
+
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  padding:
+                  EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 10.0),
+                  child: RaisedButton(
+                    onPressed: () {
+                      fscore = 0 ;
+                      Navigator.pushAndRemoveUntil(context,
+                          MaterialPageRoute(builder: (context) => pagetwo()), (Route<dynamic> route) => false);
+                    },
+                    child: Text(
+                      "Jogar Novamente",
+                      style: TextStyle(
+                          color: Colors.white, fontSize: 20.0),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding:
+                  EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 10.0),
+                  child: RaisedButton(
+                    onPressed: () {
+                      signOutGoogle();
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return TelaBase();}), ModalRoute.withName('/'));
+
+                      },
+                    child: Text(
+                      "Sair",
+                      style: TextStyle(
+                          color: Colors.white, fontSize: 20.0),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+
+/*
           Row(
             children: [
               Expanded(
@@ -95,6 +143,29 @@ class _pagethree extends State<pagethree> {
               ),
             ],
           ),
+
+
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 1.0),
+                  child: RaisedButton(
+                    onPressed: () {
+                      signOutGoogle();
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return TelaBase();}), ModalRoute.withName('/'));
+                    },
+                    child: Text(
+                      "Sair",
+                      style: TextStyle(color: Colors.white, fontSize: 25.0),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
+          ),
+*/
 
           Row(
             children: [

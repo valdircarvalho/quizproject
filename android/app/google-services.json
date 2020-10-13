@@ -42,6 +42,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373577477696:android:b4c220804b6394334939a5",
+        "android_client_info": {
+          "package_name": "com.quizprojectbyvldr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373577477696-fa45vue0evh20229sb6sc13jvj665f6r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quizprojectbyvldr",
+            "certificate_hash": "9ef33d797ea2636210b87545bb75a0eb73c79c35"
+          }
+        },
+        {
+          "client_id": "373577477696-b55jf5bmltqg8tb7kt4eikbupd8evtoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFPU1zb1aI36cZlg5NZW7oB7dhUWUxAFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373577477696-b55jf5bmltqg8tb7kt4eikbupd8evtoc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
